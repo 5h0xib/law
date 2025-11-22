@@ -4,7 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Actionism Advisory | Bridging Law, Sustainability and Culture</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        /* Color Variables */
+        :root {
+            --dark-blue: #1a365d;
+            --dark-green: #2d5a3c;
+            --orange: #d97706;
+            --cream: #fef7ed;
+            --grey: #6b7280;
+            --light-grey: #f3f4f6;
+            --white: #ffffff;
+        }
+        
         /* Reset and Base Styles */
         * {
             margin: 0;
@@ -16,7 +28,7 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             color: #333;
-            background-color: #f9f9f9;
+            background-color: var(--cream);
         }
         
         .container {
@@ -28,7 +40,7 @@
         
         /* Header Styles */
         header {
-            background-color: #fff;
+            background-color: var(--white);
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             position: sticky;
             top: 0;
@@ -45,7 +57,7 @@
         .logo {
             font-size: 24px;
             font-weight: 700;
-            color: #1a5276;
+            color: var(--dark-blue);
             text-decoration: none;
         }
         
@@ -60,13 +72,13 @@
         
         .nav-menu a {
             text-decoration: none;
-            color: #333;
+            color: var(--grey);
             font-weight: 500;
             transition: color 0.3s;
         }
         
         .nav-menu a:hover {
-            color: #1a5276;
+            color: var(--dark-green);
         }
         
         .mobile-menu-btn {
@@ -75,14 +87,15 @@
             border: none;
             font-size: 24px;
             cursor: pointer;
+            color: var(--dark-blue);
         }
         
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://via.placeholder.com/1920x1080') center/cover no-repeat;
+            background: linear-gradient(rgba(26, 54, 93, 0.8), rgba(45, 90, 60, 0.7)), url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
             color: white;
             text-align: center;
-            padding: 100px 0;
+            padding: 120px 0;
         }
         
         .hero h1 {
@@ -98,22 +111,35 @@
         
         .btn {
             display: inline-block;
-            background-color: #1a5276;
+            background-color: var(--dark-green);
             color: white;
             padding: 12px 30px;
             border-radius: 4px;
             text-decoration: none;
             font-weight: 600;
-            transition: background-color 0.3s;
+            transition: all 0.3s;
+            border: 2px solid var(--dark-green);
         }
         
         .btn:hover {
-            background-color: #154360;
+            background-color: transparent;
+            color: var(--dark-green);
+        }
+        
+        .btn-secondary {
+            background-color: var(--orange);
+            border-color: var(--orange);
+        }
+        
+        .btn-secondary:hover {
+            background-color: transparent;
+            color: var(--orange);
         }
         
         /* Quotes Section */
         .quotes-section {
-            background-color: #f1f8ff;
+            background-color: var(--dark-blue);
+            color: white;
             padding: 60px 0;
         }
         
@@ -136,20 +162,30 @@
         
         .quote-author {
             font-weight: 600;
-            color: #1a5276;
+            color: var(--orange);
         }
         
         /* About Section */
         .about-section {
             padding: 80px 0;
-            background-color: white;
+            background-color: var(--white);
         }
         
         .section-title {
             text-align: center;
             margin-bottom: 50px;
-            color: #1a5276;
+            color: var(--dark-blue);
             font-size: 2rem;
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: var(--orange);
+            margin: 15px auto 0;
         }
         
         .about-content {
@@ -165,14 +201,15 @@
         .about-image {
             flex: 1;
             height: 400px;
-            background-color: #eee;
+            background: linear-gradient(rgba(26, 54, 93, 0.1), rgba(45, 90, 60, 0.1)), url('https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80') center/cover no-repeat;
             border-radius: 8px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
         
         /* Services Section */
         .services-section {
             padding: 80px 0;
-            background-color: #f8f9fa;
+            background-color: var(--light-grey);
         }
         
         .services-grid {
@@ -182,33 +219,36 @@
         }
         
         .service-card {
-            background-color: white;
+            background-color: var(--white);
             padding: 30px;
             border-radius: 8px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            transition: transform 0.3s;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+            border-top: 4px solid var(--dark-green);
         }
         
         .service-card:hover {
             transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
         }
         
         .service-icon {
             font-size: 2.5rem;
-            color: #1a5276;
+            color: var(--dark-green);
             margin-bottom: 20px;
         }
         
         .service-title {
             font-size: 1.3rem;
             margin-bottom: 15px;
-            color: #1a5276;
+            color: var(--dark-blue);
         }
         
         /* Team Section */
         .team-section {
             padding: 80px 0;
-            background-color: white;
+            background-color: var(--white);
         }
         
         .team-member {
@@ -220,8 +260,9 @@
         .member-image {
             flex: 1;
             height: 400px;
-            background-color: #eee;
+            background: linear-gradient(rgba(26, 54, 93, 0.1), rgba(45, 90, 60, 0.1)), url('https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80') center/cover no-repeat;
             border-radius: 8px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
         
         .member-info {
@@ -230,13 +271,13 @@
         
         .member-name {
             font-size: 1.8rem;
-            color: #1a5276;
+            color: var(--dark-blue);
             margin-bottom: 10px;
         }
         
         .member-title {
             font-size: 1.2rem;
-            color: #666;
+            color: var(--grey);
             margin-bottom: 20px;
         }
         
@@ -246,7 +287,7 @@
         
         .member-link {
             display: inline-block;
-            color: #1a5276;
+            color: var(--dark-green);
             text-decoration: none;
             font-weight: 600;
         }
@@ -268,15 +309,51 @@
         
         .supporting-list li:before {
             content: "•";
-            color: #1a5276;
+            color: var(--dark-green);
             position: absolute;
             left: 0;
+        }
+        
+        /* Awards Section */
+        .awards-section {
+            padding: 80px 0;
+            background-color: var(--dark-blue);
+            color: white;
+        }
+        
+        .awards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .award-card {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        
+        .award-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .award-icon {
+            font-size: 2.5rem;
+            color: var(--orange);
+            margin-bottom: 20px;
+        }
+        
+        .award-title {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
         }
         
         /* Clients Section */
         .clients-section {
             padding: 80px 0;
-            background-color: #f8f9fa;
+            background-color: var(--light-grey);
         }
         
         .clients-grid {
@@ -287,7 +364,7 @@
         }
         
         .client-item {
-            background-color: white;
+            background-color: var(--white);
             padding: 30px 20px;
             border-radius: 8px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
@@ -296,7 +373,7 @@
         /* Thought Leadership Section */
         .thought-leadership-section {
             padding: 80px 0;
-            background-color: white;
+            background-color: var(--white);
         }
         
         .thought-content {
@@ -306,21 +383,22 @@
         }
         
         .thought-item {
-            background-color: #f8f9fa;
+            background-color: var(--light-grey);
             padding: 30px;
             border-radius: 8px;
+            border-left: 4px solid var(--dark-green);
         }
         
         .thought-title {
             font-size: 1.3rem;
             margin-bottom: 15px;
-            color: #1a5276;
+            color: var(--dark-blue);
         }
         
         /* Testimonials Section */
         .testimonials-section {
             padding: 80px 0;
-            background-color: #f1f8ff;
+            background-color: var(--light-grey);
         }
         
         .testimonials-grid {
@@ -330,10 +408,11 @@
         }
         
         .testimonial-card {
-            background-color: white;
+            background-color: var(--white);
             padding: 30px;
             border-radius: 8px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--orange);
         }
         
         .testimonial-text {
@@ -343,18 +422,18 @@
         
         .testimonial-author {
             font-weight: 600;
-            color: #1a5276;
+            color: var(--dark-blue);
         }
         
         .testimonial-role {
             font-size: 0.9rem;
-            color: #666;
+            color: var(--grey);
         }
         
         /* Contact Section */
         .contact-section {
             padding: 80px 0;
-            background-color: white;
+            background-color: var(--white);
         }
         
         .contact-content {
@@ -372,6 +451,15 @@
         
         .contact-item {
             margin-bottom: 20px;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .contact-icon {
+            color: var(--dark-green);
+            margin-right: 15px;
+            font-size: 1.2rem;
+            width: 20px;
         }
         
         .contact-label {
@@ -390,6 +478,12 @@
             border: 1px solid #ddd;
             border-radius: 4px;
             font-family: inherit;
+            transition: border-color 0.3s;
+        }
+        
+        .form-control:focus {
+            border-color: var(--dark-green);
+            outline: none;
         }
         
         textarea.form-control {
@@ -399,7 +493,7 @@
         
         /* Footer */
         footer {
-            background-color: #1a5276;
+            background-color: var(--dark-blue);
             color: white;
             padding: 60px 0 30px;
         }
@@ -415,11 +509,13 @@
             font-size: 24px;
             font-weight: 700;
             margin-bottom: 20px;
+            color: var(--orange);
         }
         
         .footer-links h3 {
             margin-bottom: 20px;
             font-size: 1.2rem;
+            color: var(--orange);
         }
         
         .footer-links ul {
@@ -437,7 +533,7 @@
         }
         
         .footer-links a:hover {
-            color: white;
+            color: var(--orange);
         }
         
         .footer-bottom {
@@ -470,7 +566,7 @@
                 top: 70px;
                 left: 0;
                 right: 0;
-                background-color: white;
+                background-color: var(--white);
                 flex-direction: column;
                 padding: 20px;
                 box-shadow: 0 5px 10px rgba(0,0,0,0.1);
@@ -509,6 +605,7 @@
                 <li><a href="#about">About</a></li>
                 <li><a href="#services">What We Do</a></li>
                 <li><a href="#team">Who We Are</a></li>
+                <li><a href="#awards">Awards</a></li>
                 <li><a href="#clients">Who We Work With</a></li>
                 <li><a href="#thought">Thought Leadership</a></li>
                 <li><a href="#testimonials">Testimonials</a></li>
@@ -523,6 +620,7 @@
             <h1>Bridging Law, Sustainability and Culture</h1>
             <p>Actionism Advisory provides integrated legal, sustainability, and cultural intelligence solutions for organizations navigating complex regulatory landscapes and market entry challenges.</p>
             <a href="#contact" class="btn">Get in Touch</a>
+            <a href="#services" class="btn btn-secondary">Our Services</a>
         </div>
     </section>
 
@@ -561,7 +659,7 @@
                     <p>Our services include legal counsel, sustainability strategies & compliance, market entry support for GCC & North Africa, and capacity building programs.</p>
                 </div>
                 <div class="about-image">
-                    <!-- Placeholder for about image -->
+                    <!-- Image placeholder -->
                 </div>
             </div>
         </div>
@@ -573,22 +671,22 @@
             <h2 class="section-title">What We Do</h2>
             <div class="services-grid">
                 <div class="service-card">
-                    <div class="service-icon">⚖️</div>
+                    <div class="service-icon"><i class="fas fa-balance-scale"></i></div>
                     <h3 class="service-title">Legal & Board Advisory</h3>
                     <p>Advising on a range of transactions and negotiations including: finance and investment, commercial arrangements, regulatory matters including data privacy, outsourcing, cloud governance, market entry and regulator approvals on new products or licenses with a focus in the GCC countries and North Africa.</p>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">🌱</div>
+                    <div class="service-icon"><i class="fas fa-leaf"></i></div>
                     <h3 class="service-title">Sustainability & ESG Strategies</h3>
                     <p>Including Net Zero decarbonization action plan (MVR), sustainable finance frameworks / KPI setting, environmental, social and governance (ESG) compliance plans, audits and benchmarking.</p>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">📚</div>
+                    <div class="service-icon"><i class="fas fa-chalkboard-teacher"></i></div>
                     <h3 class="service-title">Capacity Building</h3>
                     <p>Training & facilitating on ESG, diversity and inclusion, cultural intelligence for stakeholder engagement, impact and credibility.</p>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">🌍</div>
+                    <div class="service-icon"><i class="fas fa-globe-americas"></i></div>
                     <h3 class="service-title">Cultural Engagements & Events</h3>
                     <p>Cross-culture programs and events on topics including the Arab region business and social etiquette, managing diverse workforce, handling microaggressions; MC-ing, moderating and interviewing capabilities.</p>
                 </div>
@@ -602,7 +700,7 @@
             <h2 class="section-title">Who We Are</h2>
             <div class="team-member">
                 <div class="member-image">
-                    <!-- Placeholder for team member image -->
+                    <!-- Image placeholder -->
                 </div>
                 <div class="member-info">
                     <h3 class="member-name">Layla El-Wafi</h3>
@@ -613,7 +711,7 @@
                         <p>Within financial services Layla has experience related to new market and product entry, digital assets, sustainable finance, trade and project finance, outsourcing, enterprise risk and legal operations, data privacy, ethical AI and environmental, social and governance (ESG) integration.</p>
                         <p>Layla worked at a leading international bank's regional headquarters in the Dubai International Financial Centre (DIFC) from 2014-2025 where she was selected by management for Top Arab Talent and Women Leadership SOAR programs.</p>
                     </div>
-                    <a href="https://www.linkedin.com/in/laylaelwafi/" class="member-link" target="_blank">View LinkedIn Profile</a>
+                    <a href="https://www.linkedin.com/in/laylaelwafi/" class="member-link" target="_blank"><i class="fab fa-linkedin"></i> View LinkedIn Profile</a>
                 </div>
             </div>
             
@@ -630,25 +728,54 @@
         </div>
     </section>
 
+    <!-- Awards Section -->
+    <section id="awards" class="awards-section">
+        <div class="container">
+            <h2 class="section-title">Awards & Recognition</h2>
+            <div class="awards-grid">
+                <div class="award-card">
+                    <div class="award-icon"><i class="fas fa-award"></i></div>
+                    <h3 class="award-title">LexisNexis Women Legal Counsel of the Year 2025</h3>
+                    <p>Honorable mention & shortlist for outstanding contributions to the legal profession</p>
+                </div>
+                <div class="award-card">
+                    <div class="award-icon"><i class="fas fa-trophy"></i></div>
+                    <h3 class="award-title">Top Arab Talent Program</h3>
+                    <p>Selected by management for leadership excellence in the MENA region</p>
+                </div>
+                <div class="award-card">
+                    <div class="award-icon"><i class="fas fa-medal"></i></div>
+                    <h3 class="award-title">Women Leadership SOAR Program</h3>
+                    <p>Recognized for exceptional leadership potential and impact</p>
+                </div>
+                <div class="award-card">
+                    <div class="award-icon"><i class="fas fa-certificate"></i></div>
+                    <h3 class="award-title">Sustainability & Climate Risk Certificate</h3>
+                    <p>Global Association of Risk Professionals (GARP), 2024</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Clients Section -->
     <section id="clients" class="clients-section">
         <div class="container">
             <h2 class="section-title">Who We Work With</h2>
             <div class="clients-grid">
                 <div class="client-item">
-                    <h3>Companies</h3>
+                    <h3><i class="fas fa-building"></i> Companies</h3>
                 </div>
                 <div class="client-item">
-                    <h3>Government Institutions</h3>
+                    <h3><i class="fas fa-landmark"></i> Government Institutions</h3>
                 </div>
                 <div class="client-item">
-                    <h3>Universities & Academia</h3>
+                    <h3><i class="fas fa-university"></i> Universities & Academia</h3>
                 </div>
                 <div class="client-item">
-                    <h3>Think Tanks</h3>
+                    <h3><i class="fas fa-brain"></i> Think Tanks</h3>
                 </div>
                 <div class="client-item">
-                    <h3>Individuals</h3>
+                    <h3><i class="fas fa-user-tie"></i> Individuals</h3>
                 </div>
             </div>
         </div>
@@ -660,19 +787,19 @@
             <h2 class="section-title">What We Have to Say</h2>
             <div class="thought-content">
                 <div class="thought-item">
-                    <h3 class="thought-title">Reports</h3>
+                    <h3 class="thought-title"><i class="fas fa-file-alt"></i> Reports</h3>
                     <p>Insightful analysis and research on legal, sustainability and market trends.</p>
                 </div>
                 <div class="thought-item">
-                    <h3 class="thought-title">Podcasts</h3>
+                    <h3 class="thought-title"><i class="fas fa-podcast"></i> Podcasts</h3>
                     <p>Conversations with industry leaders on pressing issues at the intersection of law, sustainability and culture.</p>
                 </div>
                 <div class="thought-item">
-                    <h3 class="thought-title">Media Clips</h3>
+                    <h3 class="thought-title"><i class="fas fa-film"></i> Media Clips</h3>
                     <p>Featured appearances and contributions to media discussions on relevant topics.</p>
                 </div>
                 <div class="thought-item">
-                    <h3 class="thought-title">Training Videos</h3>
+                    <h3 class="thought-title"><i class="fas fa-video"></i> Training Videos</h3>
                     <p>Educational content on specialized topics (available for payment).</p>
                 </div>
             </div>
@@ -710,20 +837,32 @@
             <div class="contact-content">
                 <div class="contact-info">
                     <div class="contact-item">
-                        <span class="contact-label">Phone:</span>
-                        <p>+971 (0)56 418 5783</p>
+                        <div class="contact-icon"><i class="fas fa-phone"></i></div>
+                        <div>
+                            <span class="contact-label">Phone:</span>
+                            <p>+971 (0)56 418 5783</p>
+                        </div>
                     </div>
                     <div class="contact-item">
-                        <span class="contact-label">Email:</span>
-                        <p>info@actionismadvisory.com</p>
+                        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                        <div>
+                            <span class="contact-label">Email:</span>
+                            <p>info@actionismadvisory.com</p>
+                        </div>
                     </div>
                     <div class="contact-item">
-                        <span class="contact-label">LinkedIn:</span>
-                        <p>@ActionismAdvisory</p>
+                        <div class="contact-icon"><i class="fab fa-linkedin"></i></div>
+                        <div>
+                            <span class="contact-label">LinkedIn:</span>
+                            <p>@ActionismAdvisory</p>
+                        </div>
                     </div>
                     <div class="contact-item">
-                        <span class="contact-label">Address:</span>
-                        <p>Actionism Advisory FZ LLE is incorporated in Fujairah Creative City Media Free Zone, UAE with trade license: 19847/2025</p>
+                        <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div>
+                            <span class="contact-label">Address:</span>
+                            <p>Actionism Advisory FZ LLE is incorporated in Fujairah Creative City Media Free Zone, UAE with trade license: 19847/2025</p>
+                        </div>
                     </div>
                 </div>
                 <div class="contact-form">
