@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actionism Advisory | Bridging Law, Sustainability and Culture</title>
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1a5276;
+            text-decoration: none;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-menu li {
+            margin-left: 25px;
+        }
+        
+        .nav-menu a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-menu a:hover {
+            color: #1a5276;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://via.placeholder.com/1920x1080') center/cover no-repeat;
+            color: white;
+            text-align: center;
+            padding: 100px 0;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: #1a5276;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #154360;
+        }
+        
+        /* Quotes Section */
+        .quotes-section {
+            background-color: #f1f8ff;
+            padding: 60px 0;
+        }
+        
+        .quote-slider {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .quote {
+            font-size: 1.5rem;
+            font-style: italic;
+            margin-bottom: 20px;
+            display: none;
+        }
+        
+        .quote.active {
+            display: block;
+        }
+        
+        .quote-author {
+            font-weight: 600;
+            color: #1a5276;
+        }
+        
+        /* About Section */
+        .about-section {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            color: #1a5276;
+            font-size: 2rem;
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-image {
+            flex: 1;
+            height: 400px;
+            background-color: #eee;
+            border-radius: 8px;
+        }
+        
+        /* Services Section */
+        .services-section {
+            padding: 80px 0;
+            background-color: #f8f9fa;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .service-icon {
+            font-size: 2.5rem;
+            color: #1a5276;
+            margin-bottom: 20px;
+        }
+        
+        .service-title {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: #1a5276;
+        }
+        
+        /* Team Section */
+        .team-section {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .team-member {
+            display: flex;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+        
+        .member-image {
+            flex: 1;
+            height: 400px;
+            background-color: #eee;
+            border-radius: 8px;
+        }
+        
+        .member-info {
+            flex: 2;
+        }
+        
+        .member-name {
+            font-size: 1.8rem;
+            color: #1a5276;
+            margin-bottom: 10px;
+        }
+        
+        .member-title {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 20px;
+        }
+        
+        .member-bio {
+            margin-bottom: 20px;
+        }
+        
+        .member-link {
+            display: inline-block;
+            color: #1a5276;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .supporting-team {
+            margin-top: 60px;
+        }
+        
+        .supporting-list {
+            list-style: none;
+            columns: 2;
+        }
+        
+        .supporting-list li {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .supporting-list li:before {
+            content: "•";
+            color: #1a5276;
+            position: absolute;
+            left: 0;
+        }
+        
+        /* Clients Section */
+        .clients-section {
+            padding: 80px 0;
+            background-color: #f8f9fa;
+        }
+        
+        .clients-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+        
+        .client-item {
+            background-color: white;
+            padding: 30px 20px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        /* Thought Leadership Section */
+        .thought-leadership-section {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .thought-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .thought-item {
+            background-color: #f8f9fa;
+            padding: 30px;
+            border-radius: 8px;
+        }
+        
+        .thought-title {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: #1a5276;
+        }
+        
+        /* Testimonials Section */
+        .testimonials-section {
+            padding: 80px 0;
+            background-color: #f1f8ff;
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonial-card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+        
+        .testimonial-author {
+            font-weight: 600;
+            color: #1a5276;
+        }
+        
+        .testimonial-role {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        /* Contact Section */
+        .contact-section {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .contact-content {
+            display: flex;
+            gap: 40px;
+        }
+        
+        .contact-info {
+            flex: 1;
+        }
+        
+        .contact-form {
+            flex: 1;
+        }
+        
+        .contact-item {
+            margin-bottom: 20px;
+        }
+        
+        .contact-label {
+            font-weight: 600;
+            margin-bottom: 5px;
+            display: block;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: inherit;
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #1a5276;
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-logo {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        .footer-links h3 {
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+            color: #ddd;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .about-content, .team-member, .contact-content {
+                flex-direction: column;
+            }
+            
+            .member-image, .about-image {
+                width: 100%;
+            }
+            
+            .supporting-list {
+                columns: 1;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background-color: white;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+            }
+            
+            .nav-menu.active {
+                display: flex;
+            }
+            
+            .nav-menu li {
+                margin: 10px 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo">Actionism Advisory</a>
+            <button class="mobile-menu-btn">☰</button>
+            <ul class="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">What We Do</a></li>
+                <li><a href="#team">Who We Are</a></li>
+                <li><a href="#clients">Who We Work With</a></li>
+                <li><a href="#thought">Thought Leadership</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <h1>Bridging Law, Sustainability and Culture</h1>
+            <p>Actionism Advisory provides integrated legal, sustainability, and cultural intelligence solutions for organizations navigating complex regulatory landscapes and market entry challenges.</p>
+            <a href="#contact" class="btn">Get in Touch</a>
+        </div>
+    </section>
+
+    <!-- Quotes Section -->
+    <section class="quotes-section">
+        <div class="container quote-slider">
+            <div class="quote active">
+                "Making sense of law and sustainability."
+            </div>
+            <div class="quote">
+                "Adding value (and values) for impact."
+            </div>
+            <div class="quote">
+                "Unlocking growth with cultural intelligence."
+            </div>
+            <div class="quote">
+                "Bridging the gaps between legal compliance and sustainability practices with culture smart solutions."
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <h2 class="section-title">About Actionism Advisory</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Actionism Advisory FZ LLE is incorporated in Fujairah Creative City Media Free Zone, UAE with trade license: 19847/2025.</p>
+                    <p>We integrate expertise across four key domains:</p>
+                    <ul>
+                        <li>Legal Advice</li>
+                        <li>Finance</li>
+                        <li>Sustainability</li>
+                        <li>Culture</li>
+                    </ul>
+                    <p>Our services include legal counsel, sustainability strategies & compliance, market entry support for GCC & North Africa, and capacity building programs.</p>
+                </div>
+                <div class="about-image">
+                    <!-- Placeholder for about image -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services-section">
+        <div class="container">
+            <h2 class="section-title">What We Do</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">⚖️</div>
+                    <h3 class="service-title">Legal & Board Advisory</h3>
+                    <p>Advising on a range of transactions and negotiations including: finance and investment, commercial arrangements, regulatory matters including data privacy, outsourcing, cloud governance, market entry and regulator approvals on new products or licenses with a focus in the GCC countries and North Africa.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🌱</div>
+                    <h3 class="service-title">Sustainability & ESG Strategies</h3>
+                    <p>Including Net Zero decarbonization action plan (MVR), sustainable finance frameworks / KPI setting, environmental, social and governance (ESG) compliance plans, audits and benchmarking.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📚</div>
+                    <h3 class="service-title">Capacity Building</h3>
+                    <p>Training & facilitating on ESG, diversity and inclusion, cultural intelligence for stakeholder engagement, impact and credibility.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🌍</div>
+                    <h3 class="service-title">Cultural Engagements & Events</h3>
+                    <p>Cross-culture programs and events on topics including the Arab region business and social etiquette, managing diverse workforce, handling microaggressions; MC-ing, moderating and interviewing capabilities.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="team-section">
+        <div class="container">
+            <h2 class="section-title">Who We Are</h2>
+            <div class="team-member">
+                <div class="member-image">
+                    <!-- Placeholder for team member image -->
+                </div>
+                <div class="member-info">
+                    <h3 class="member-name">Layla El-Wafi</h3>
+                    <p class="member-title">Lead Actionist | Finance Lawyer | Board Advisor</p>
+                    <div class="member-bio">
+                        <p>Founding partner of Actionism Advisory. A senior lawyer and board advisor in corporate and banking law, sustainability and impact. Her advice considers the legal and social license, ensuring that organizations protect their regulatory standing and reputation by combining IQ/EQ/CQ, bilingual skills (EN/AR) and cultural fluency with 20+ years in law, finance and human rights across sectors and regions.</p>
+                        <p>Her voice is both professional and creative – equally at home in a corporate boardroom or on stage performing spoken word poetry. Layla is an English law qualified lawyer with 17 years combined experience in international private practice and in-house counsel advising on high value and cross-border transactions, commercial contract negotiation, regulatory compliance and sustainability across UK / Europe, Singapore, GCC countries and North Africa regions.</p>
+                        <p>Within financial services Layla has experience related to new market and product entry, digital assets, sustainable finance, trade and project finance, outsourcing, enterprise risk and legal operations, data privacy, ethical AI and environmental, social and governance (ESG) integration.</p>
+                        <p>Layla worked at a leading international bank's regional headquarters in the Dubai International Financial Centre (DIFC) from 2014-2025 where she was selected by management for Top Arab Talent and Women Leadership SOAR programs.</p>
+                    </div>
+                    <a href="https://www.linkedin.com/in/laylaelwafi/" class="member-link" target="_blank">View LinkedIn Profile</a>
+                </div>
+            </div>
+            
+            <div class="supporting-team">
+                <h3>Supporting Actionists</h3>
+                <ul class="supporting-list">
+                    <li>Climate Risk & Decarbonization Specialists</li>
+                    <li>ESG Tech / Software solution providers for data analytics for monitoring and reporting requirements</li>
+                    <li>Public policy and government relations experts</li>
+                    <li>Public relations, communication and marketing experts</li>
+                    <li>Human Capital Experts</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clients Section -->
+    <section id="clients" class="clients-section">
+        <div class="container">
+            <h2 class="section-title">Who We Work With</h2>
+            <div class="clients-grid">
+                <div class="client-item">
+                    <h3>Companies</h3>
+                </div>
+                <div class="client-item">
+                    <h3>Government Institutions</h3>
+                </div>
+                <div class="client-item">
+                    <h3>Universities & Academia</h3>
+                </div>
+                <div class="client-item">
+                    <h3>Think Tanks</h3>
+                </div>
+                <div class="client-item">
+                    <h3>Individuals</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Thought Leadership Section -->
+    <section id="thought" class="thought-leadership-section">
+        <div class="container">
+            <h2 class="section-title">What We Have to Say</h2>
+            <div class="thought-content">
+                <div class="thought-item">
+                    <h3 class="thought-title">Reports</h3>
+                    <p>Insightful analysis and research on legal, sustainability and market trends.</p>
+                </div>
+                <div class="thought-item">
+                    <h3 class="thought-title">Podcasts</h3>
+                    <p>Conversations with industry leaders on pressing issues at the intersection of law, sustainability and culture.</p>
+                </div>
+                <div class="thought-item">
+                    <h3 class="thought-title">Media Clips</h3>
+                    <p>Featured appearances and contributions to media discussions on relevant topics.</p>
+                </div>
+                <div class="thought-item">
+                    <h3 class="thought-title">Training Videos</h3>
+                    <p>Educational content on specialized topics (available for payment).</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials-section">
+        <div class="container">
+            <h2 class="section-title">What Others Have to Say</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Layla consistently brings a strong and rare balance of legal precision and commercial accuracy. She is always thorough, prompt, and incredibly hardcore. She's known for being the go-to person for the business, always bringing a solution-oriented mindset, attention to detail, and pragmatic approach. Layla is a true asset one of those rare colleagues in Legal who effortlessly earns the best and respect of both Legal and front office teams. She is also a natural leader-calm under pressure, clear in her guidance, and deeply respected for her ability to lead with both confidence and empathy. An essential resource to the team, Layla's work is truly understandable and I can't wait to work with her again."</p>
+                    <p class="testimonial-author">Sahar Galadari</p>
+                    <p class="testimonial-role">Corporate Banking RM, SMBC Dubai</p>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Layla stands out from the crowd. Her ability to deliver value-added counsel on legal complexities is balanced with an astute commercial awareness, making her the ideal business partner. Always dependable for finding a solution, her extensive experience is reinforced by her intellectual curiosity, exemplary ethical compass and art facility."</p>
+                    <p class="testimonial-author">Jean Marc</p>
+                    <p class="testimonial-role">Head of Financing & SS MENA Standard Chartered Bank Dubai</p>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"I have worked with Layla for the best part of a decade. Aside from her strong legal skills and business development acumen, Layla is a very adept communicator with an extensive network of contacts across the UK and the MENA region, in particular Libya where she is well regarded. Layla would always be my first stop for any advice on cultural matters and for an unbiased opinion."</p>
+                    <p class="testimonial-author">Andrew Carpenter</p>
+                    <p class="testimonial-role">former Partner Addleshaw Goddard Law firm London</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2 class="section-title">Contact Us</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <span class="contact-label">Phone:</span>
+                        <p>+971 (0)56 418 5783</p>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-label">Email:</span>
+                        <p>info@actionismadvisory.com</p>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-label">LinkedIn:</span>
+                        <p>@ActionismAdvisory</p>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-label">Address:</span>
+                        <p>Actionism Advisory FZ LLE is incorporated in Fujairah Creative City Media Free Zone, UAE with trade license: 19847/2025</p>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Subject">
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo">Actionism Advisory</div>
+                    <p>Bridging the gaps between legal compliance and sustainability practices with culture smart solutions.</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#services">What We Do</a></li>
+                        <li><a href="#team">Who We Are</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="#services">Legal & Board Advisory</a></li>
+                        <li><a href="#services">Sustainability & ESG</a></li>
+                        <li><a href="#services">Capacity Building</a></li>
+                        <li><a href="#services">Cultural Engagements</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="#">Terms and Conditions</a></li>
+                        <li><a href="#">Privacy Notice</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Actionism Advisory FZ LLE. All rights reserved. | Trade License: 19847/2025</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            document.querySelector('.nav-menu').classList.toggle('active');
+        });
+
+        // Quote Slider
+        const quotes = document.querySelectorAll('.quote');
+        let currentQuote = 0;
+
+        function showNextQuote() {
+            quotes[currentQuote].classList.remove('active');
+            currentQuote = (currentQuote + 1) % quotes.length;
+            quotes[currentQuote].classList.add('active');
+        }
+
+        setInterval(showNextQuote, 5000);
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    document.querySelector('.nav-menu').classList.remove('active');
+                }
+            });
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(e) {
+            const menu = document.querySelector('.nav-menu');
+            const button = document.querySelector('.mobile-menu-btn');
+            
+            if(!menu.contains(e.target) && !button.contains(e.target) && menu.classList.contains('active')) {
+                menu.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>
