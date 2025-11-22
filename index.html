@@ -92,10 +92,11 @@
         
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(26, 54, 93, 0.8), rgba(45, 90, 60, 0.7)), url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+            background: linear-gradient(rgba(26, 54, 93, 0.8), rgba(45, 90, 60, 0.7)), url('./images/img1.jpg') center/cover no-repeat;
             color: white;
             text-align: center;
             padding: 120px 0;
+            transition: background-image 1s ease-in-out;
         }
         
         .hero h1 {
@@ -190,16 +191,20 @@
         
         .about-content {
             display: flex;
+            flex-wrap: wrap;
             align-items: center;
             gap: 40px;
+            justify-content: center;
         }
         
         .about-text {
             flex: 1;
+            min-width: 300px;
         }
         
         .about-image {
             flex: 1;
+            min-width: 300px;
             height: 400px;
             background: linear-gradient(rgba(26, 54, 93, 0.1), rgba(45, 90, 60, 0.1)), url('https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80') center/cover no-repeat;
             border-radius: 8px;
@@ -213,8 +218,9 @@
         }
         
         .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
             gap: 30px;
         }
         
@@ -226,6 +232,9 @@
             transition: transform 0.3s, box-shadow 0.3s;
             text-align: center;
             border-top: 4px solid var(--dark-green);
+            flex: 1;
+            min-width: 300px;
+            max-width: 350px;
         }
         
         .service-card:hover {
@@ -253,12 +262,15 @@
         
         .team-member {
             display: flex;
+            flex-wrap: wrap;
             gap: 40px;
             margin-bottom: 60px;
+            justify-content: center;
         }
         
         .member-image {
             flex: 1;
+            min-width: 300px;
             height: 400px;
             background: linear-gradient(rgba(26, 54, 93, 0.1), rgba(45, 90, 60, 0.1)), url('https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80') center/cover no-repeat;
             border-radius: 8px;
@@ -267,12 +279,25 @@
         
         .member-info {
             flex: 2;
+            min-width: 300px;
         }
         
         .member-name {
             font-size: 1.8rem;
             color: var(--dark-blue);
             margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .member-profile-img {
+            display: none;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin-right: 15px;
+            object-fit: cover;
+            border: 3px solid var(--dark-green);
         }
         
         .member-title {
@@ -322,8 +347,9 @@
         }
         
         .awards-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
             gap: 30px;
         }
         
@@ -333,6 +359,9 @@
             border-radius: 8px;
             text-align: center;
             transition: transform 0.3s;
+            flex: 1;
+            min-width: 300px;
+            max-width: 350px;
         }
         
         .award-card:hover {
@@ -357,8 +386,9 @@
         }
         
         .clients-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
             gap: 30px;
             text-align: center;
         }
@@ -368,6 +398,9 @@
             padding: 30px 20px;
             border-radius: 8px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            flex: 1;
+            min-width: 200px;
+            max-width: 250px;
         }
         
         /* Thought Leadership Section */
@@ -377,8 +410,9 @@
         }
         
         .thought-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
             gap: 30px;
         }
         
@@ -387,6 +421,9 @@
             padding: 30px;
             border-radius: 8px;
             border-left: 4px solid var(--dark-green);
+            flex: 1;
+            min-width: 300px;
+            max-width: 350px;
         }
         
         .thought-title {
@@ -399,35 +436,76 @@
         .testimonials-section {
             padding: 80px 0;
             background-color: var(--light-grey);
+            overflow: hidden;
         }
         
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+        .testimonials-container {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .testimonials-track {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        
+        .testimonial-slide {
+            flex: 0 0 100%;
+            padding: 0 20px;
+            box-sizing: border-box;
         }
         
         .testimonial-card {
             background-color: var(--white);
-            padding: 30px;
+            padding: 40px;
             border-radius: 8px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
             border-top: 4px solid var(--orange);
+            text-align: center;
         }
         
         .testimonial-text {
             font-style: italic;
             margin-bottom: 20px;
+            font-size: 1.1rem;
+            line-height: 1.8;
         }
         
         .testimonial-author {
             font-weight: 600;
             color: var(--dark-blue);
+            font-size: 1.1rem;
         }
         
         .testimonial-role {
             font-size: 0.9rem;
             color: var(--grey);
+        }
+        
+        .testimonial-nav {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+            gap: 15px;
+        }
+        
+        .testimonial-nav button {
+            background-color: var(--dark-green);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s;
+        }
+        
+        .testimonial-nav button:hover {
+            background-color: var(--dark-blue);
         }
         
         /* Contact Section */
@@ -438,15 +516,19 @@
         
         .contact-content {
             display: flex;
+            flex-wrap: wrap;
             gap: 40px;
+            justify-content: center;
         }
         
         .contact-info {
             flex: 1;
+            min-width: 300px;
         }
         
         .contact-form {
             flex: 1;
+            min-width: 300px;
         }
         
         .contact-item {
@@ -499,10 +581,17 @@
         }
         
         .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
             gap: 40px;
             margin-bottom: 40px;
+        }
+        
+        .footer-about, .footer-links {
+            flex: 1;
+            min-width: 250px;
+            max-width: 300px;
         }
         
         .footer-logo {
@@ -591,6 +680,10 @@
             .hero p {
                 font-size: 1rem;
             }
+            
+            .member-profile-img {
+                display: block;
+            }
         }
     </style>
 </head>
@@ -603,11 +696,6 @@
             <ul class="nav-menu">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
-                <li><a href="#services">What We Do</a></li>
-                <li><a href="#team">Who We Are</a></li>
-                <li><a href="#awards">Awards</a></li>
-                <li><a href="#clients">Who We Work With</a></li>
-                <li><a href="#thought">Thought Leadership</a></li>
                 <li><a href="#testimonials">Testimonials</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -703,7 +791,10 @@
                     <!-- Image placeholder -->
                 </div>
                 <div class="member-info">
-                    <h3 class="member-name">Layla El-Wafi</h3>
+                    <h3 class="member-name">
+                        <img src="./images/layla-profile.jpg" alt="Layla El Wafi" class="member-profile-img">
+                        Layla El Wafi
+                    </h3>
                     <p class="member-title">Lead Actionist | Finance Lawyer | Board Advisor</p>
                     <div class="member-bio">
                         <p>Founding partner of Actionism Advisory. A senior lawyer and board advisor in corporate and banking law, sustainability and impact. Her advice considers the legal and social license, ensuring that organizations protect their regulatory standing and reputation by combining IQ/EQ/CQ, bilingual skills (EN/AR) and cultural fluency with 20+ years in law, finance and human rights across sectors and regions.</p>
@@ -731,7 +822,7 @@
     <!-- Awards Section -->
     <section id="awards" class="awards-section">
         <div class="container">
-            <h2 class="section-title">Awards & Recognition</h2>
+            <h2 class="section-title" style="color: #ffffff;">Awards & Recognition</h2>
             <div class="awards-grid">
                 <div class="award-card">
                     <div class="award-icon"><i class="fas fa-award"></i></div>
@@ -810,21 +901,82 @@
     <section id="testimonials" class="testimonials-section">
         <div class="container">
             <h2 class="section-title">What Others Have to Say</h2>
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <p class="testimonial-text">"Layla consistently brings a strong and rare balance of legal precision and commercial accuracy. She is always thorough, prompt, and incredibly hardcore. She's known for being the go-to person for the business, always bringing a solution-oriented mindset, attention to detail, and pragmatic approach. Layla is a true asset one of those rare colleagues in Legal who effortlessly earns the best and respect of both Legal and front office teams. She is also a natural leader-calm under pressure, clear in her guidance, and deeply respected for her ability to lead with both confidence and empathy. An essential resource to the team, Layla's work is truly understandable and I can't wait to work with her again."</p>
-                    <p class="testimonial-author">Sahar Galadari</p>
-                    <p class="testimonial-role">Corporate Banking RM, SMBC Dubai</p>
+            <div class="testimonials-container">
+                <div class="testimonials-track">
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <p class="testimonial-text">"Layla consistently brings a strong and rare balance of legal precision and commercial accuracy. She is always thorough, prompt, and incredibly hardcore. She's known for being the go-to person for the business, always bringing a solution-oriented mindset, attention to detail, and pragmatic approach. Layla is a true asset one of those rare colleagues in Legal who effortlessly earns the best and respect of both Legal and front office teams. She is also a natural leader-calm under pressure, clear in her guidance, and deeply respected for her ability to lead with both confidence and empathy. An essential resource to the team, Layla's work is truly understandable and I can't wait to work with her again."</p>
+                            <p class="testimonial-author">Sahar Galadari</p>
+                            <p class="testimonial-role">Corporate Banking RM, SMBC Dubai</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <p class="testimonial-text">"Layla stands out from the crowd. Her ability to deliver value-added counsel on legal complexities is balanced with an astute commercial awareness, making her the ideal business partner. Always dependable for finding a solution, her extensive experience is reinforced by her intellectual curiosity, exemplary ethical compass and art facility."</p>
+                            <p class="testimonial-author">Jean Marc</p>
+                            <p class="testimonial-role">Head of Financing & SS MENA Standard Chartered Bank Dubai</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <p class="testimonial-text">"I have worked with Layla for the best part of a decade. Aside from her strong legal skills and business development acumen, Layla is a very adept communicator with an extensive network of contacts across the UK and the MENA region, in particular Libya where she is well regarded. Layla would always be my first stop for any advice on cultural matters and for an unbiased opinion."</p>
+                            <p class="testimonial-author">Andrew Carpenter</p>
+                            <p class="testimonial-role">former Partner Addleshaw Goddard Law firm London</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <p class="testimonial-text">"Having collaborated with Layla on several projects over the years, I have always marveled at the level of professionalism and attention to detail that she delivers. In part this comes from her experience as a lawyer which brings that laser focus. In addition, she is someone who can zoom out and take a more macro view as a thought leader when needed, particularly in areas such as ESG and DEI. Together with her strong advocacy gained through her legal training, she also has a creative gift as a storyteller. I have seen her use this imaginative faculty in the work she has done as a community engager, bridge builder across different cultures and facilitator who knows how to get the best out of participants in any setting, and at any executive or managerial level."</p>
+                            <p class="testimonial-author">Rehan Khan</p>
+                            <p class="testimonial-role">Leadership Professor & Novelist</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <p class="testimonial-text">"I've had the privilege of seeing Layla present and engage audiences across a range of settings-from professional panels and corporate discussions to creative, community-driven forums. Her style is uniquely compelling; she combines the clarity and precision of a seasoned lawyer with the empathy and storytelling instincts of a natural communicator."</p>
+                            <p class="testimonial-author">Marie Chowdhry</p>
+                            <p class="testimonial-role">Partner, Pinsent Masons law firm (UAE)</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <p class="testimonial-text">"As a legal advisor, her expertise, precision, and professionalism were instrumental in navigating the complex legal landscape with ease and integrity. Beyond her technical skills, what truly sets her apart is her deep commitment to diversity and inclusion. Her experience and passion in this space brought invaluable insight and humanity to our work-always advocating for equity, representation, and meaningful change. Layla is also a person of immense courage. She speaks her truth with clarity and conviction, inspiring those around her to do the same. Her unwavering integrity and genuine care for others reflect her love for humanity-a rare and beautiful quality in today's world. Anyone who has the opportunity to work with her will quickly see the impact of her presence-both professionally and personally."</p>
+                            <p class="testimonial-author">Sara Morsi</p>
+                            <p class="testimonial-role">Group Property Ops Risk Manager and Co-Lead for Disabilities ERG Standard Chartered Bank Dubai and Executive Coach</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <p class="testimonial-text">"Layla consistently brings a strong and rare balance of legal precision and commercial acumen-she is always thorough, prompt, and incredibly hands-on. She's known for being the go-to person for the business, always bringing a solution-oriented mindset, attention to detail, and pragmatic approach. Layla is a true asset-one of those rare colleagues in Legal who effortlessly earns the trust and respect of both Legal and front-office teams. She is also a natural leader-calm under pressure, clear in her guidance, and deeply respected for her ability to lead with both confidence and empathy. An essential resource to the team, Layla's work is truly unforgettable and I can't wait to work with her again."</p>
+                            <p class="testimonial-author">Sahar Galadari</p>
+                            <p class="testimonial-role">Corporate Banking RM, SMBC Dubai</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <p class="testimonial-text">"Layla stands out from the crowd. Her ability to deliver value-added counsel on legal complexities is balanced with an astute commercial awareness, making her the ideal business partner. Always dependable for finding a solution, her extensive experience is reinforced by her intellectual curiosity, exemplary ethical compass and affability."</p>
+                            <p class="testimonial-author">Jean Marc</p>
+                            <p class="testimonial-role">Head of Financing & SS MENA Standard Chartered Bank Dubai</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <p class="testimonial-text">"I have worked with Layla for the best part of a decade. Aside from her strong legal skills and business development acumen Layla is a very adept communicator with an extensive network of contacts across the UK and the MENA region, in particular Libya where she is well regarded. Layla would always be my first stop for any advice on cultural matters and for an unbiased opinion."</p>
+                            <p class="testimonial-author">Andrew Carpenter</p>
+                            <p class="testimonial-role">former Partner Addleshaw Goddard Law firm London</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <p class="testimonial-text">"I know and worked with Layla for nearly a decade now and more so recently on key strategic projects covering multiple Middle East jurisdictions. Layla is an exceptional lawyer with strong technical legal knowledge with deep understanding of legal framework across multiple Middle East countries and beyond. What makes her unique is overlying multiple other hard and soft skills on top of legal expertise- some notable ones include (but not limited to): her ability to succinctly articulate what can/can't be accepted and 'WHY' such that it makes sense to counterparts- The other thing that stands out for me is her desire to be a learning machine to acquire expertise in emerging and evolving areas such as AI, ESG, Digital Assets thus adding value to not only any conversation around these topics but someone you can go to and use as a sound board for new ideas /innovation, a prerequisite. And last but not least get the job done (can't emphasis enough how important that is). In short, Layla is someone whom I like to be part of every major project or initiative that I work keeping in view the value that she adds, the energy that she carries and excellent work ethos that she brings into the table."</p>
+                            <p class="testimonial-author">Shoaib Fathany</p>
+                            <p class="testimonial-role">Security, Custody and Fund Services at Standard Chartered Bank (UK/GCC)</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="testimonial-card">
-                    <p class="testimonial-text">"Layla stands out from the crowd. Her ability to deliver value-added counsel on legal complexities is balanced with an astute commercial awareness, making her the ideal business partner. Always dependable for finding a solution, her extensive experience is reinforced by her intellectual curiosity, exemplary ethical compass and art facility."</p>
-                    <p class="testimonial-author">Jean Marc</p>
-                    <p class="testimonial-role">Head of Financing & SS MENA Standard Chartered Bank Dubai</p>
-                </div>
-                <div class="testimonial-card">
-                    <p class="testimonial-text">"I have worked with Layla for the best part of a decade. Aside from her strong legal skills and business development acumen, Layla is a very adept communicator with an extensive network of contacts across the UK and the MENA region, in particular Libya where she is well regarded. Layla would always be my first stop for any advice on cultural matters and for an unbiased opinion."</p>
-                    <p class="testimonial-author">Andrew Carpenter</p>
-                    <p class="testimonial-role">former Partner Addleshaw Goddard Law firm London</p>
+                <div class="testimonial-nav">
+                    <button class="testimonial-prev"><i class="fas fa-chevron-left"></i></button>
+                    <button class="testimonial-next"><i class="fas fa-chevron-right"></i></button>
                 </div>
             </div>
         </div>
@@ -942,7 +1094,55 @@
             quotes[currentQuote].classList.add('active');
         }
 
-        setInterval(showNextQuote, 5000);
+        setInterval(showNextQuote, 7000);
+
+        // Hero Background Slider
+        const heroImages = [
+            './images/img1.jpg',
+            './images/img2.jpg',
+            './images/img3.jpg',
+            './images/img4.jpg',
+            './images/img5.jpg'
+        ];
+        let currentImageIndex = 0;
+        const heroSection = document.querySelector('.hero');
+
+        function changeHeroBackground() {
+            currentImageIndex = (currentImageIndex + 1) % heroImages.length;
+            heroSection.style.backgroundImage = `linear-gradient(rgba(26, 54, 93, 0.8), rgba(45, 90, 60, 0.7)), url('${heroImages[currentImageIndex]}')`;
+        }
+
+        // Start background rotation after 5 seconds
+        setTimeout(() => {
+            setInterval(changeHeroBackground, 5000);
+        }, 5000);
+
+        // Testimonials Slider
+        const track = document.querySelector('.testimonials-track');
+        const slides = document.querySelectorAll('.testimonial-slide');
+        const nextButton = document.querySelector('.testimonial-next');
+        const prevButton = document.querySelector('.testimonial-prev');
+        let currentSlide = 0;
+
+        function updateSlider() {
+            track.style.transform = `translateX(-${currentSlide * 100}%)`;
+        }
+
+        nextButton.addEventListener('click', () => {
+            currentSlide = (currentSlide + 1) % slides.length;
+            updateSlider();
+        });
+
+        prevButton.addEventListener('click', () => {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            updateSlider();
+        });
+
+        // Auto-advance testimonials
+        setInterval(() => {
+            currentSlide = (currentSlide + 1) % slides.length;
+            updateSlider();
+        }, 8000);
 
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
